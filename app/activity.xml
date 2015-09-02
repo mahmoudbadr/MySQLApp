@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/txt_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="7dp"
+        android:hint="" />
+
+    <requestFocus />
+
+    <EditText
+        android:id="@+id/txt_proid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_value"
+        android:layout_marginTop="7dp"
+        android:hint="ENTER PRODUCT ID HERE" />
+
+    <Button
+        android:id="@+id/scanbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txt_proid"
+        android:layout_marginTop="7dp"
+        android:text="SCAN"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/insertbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_proid"
+        android:layout_marginTop="7dp"
+        android:layout_toRightOf="@+id/scanbtn"
+        android:text="INSERT"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/updatebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_proid"
+        android:layout_marginTop="7dp"
+        android:layout_toRightOf="@+id/insertbtn"
+        android:text="UPDATE"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/deletebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_proid"
+        android:layout_marginTop="7dp"
+        android:layout_toRightOf="@+id/updatebtn"
+        android:text="DELETE"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/format"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scanbtn"
+        android:layout_marginTop="7dp"
+        android:textSize="20sp"
+        android:textStyle="bold" 
+        android:text="Barcode: "/>
+
+    <TextView
+        android:id="@+id/bvalue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scanbtn"
+        android:layout_marginTop="7dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/format"
+        android:text="Barcode CODE" />
+
+    <ListView
+        android:id="@+id/list_output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/format"
+        android:layout_marginTop="7dp" >
+    </ListView>
+
+</RelativeLayout>
