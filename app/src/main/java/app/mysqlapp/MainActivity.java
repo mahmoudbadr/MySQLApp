@@ -24,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
     Button add;
     TextView errorlbl;
     EditText name, address, pincode;
-    Connection connect;
+    java.sql.Connection connect;
     PreparedStatement preparedStatement;
     Statement st;
     String ipaddress, db, username, password;
@@ -66,7 +66,7 @@ public class MainActivity extends ActionBarActivity {
         address = (EditText) findViewById(R.id.txtaddress);
         pincode = (EditText) findViewById(R.id.txtpincode);
 
-        ipaddress = "MAHMOUDBADR";
+        ipaddress = "192.168.1.7:1433";
         db = "Nursery";
         username = "sa";
         password = "P@ssw0rd";

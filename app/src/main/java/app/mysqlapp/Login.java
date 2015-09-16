@@ -26,14 +26,14 @@ public class Login extends ActionBarActivity {
     Button loginbtn;
     TextView errorlbl;
     EditText edname, edpassword;
-    Connection connect;
+    java.sql.Connection connect;
     PreparedStatement preparedStatement;
     Statement st;
     String ipaddress, db, username, password;
 
     @SuppressLint("NewApi")
     private Connection ConnectionHelper(String user, String password,
-                                        String database, String server) {
+                                        String database, String server ) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -67,7 +67,7 @@ public class Login extends ActionBarActivity {
         edname = (EditText) findViewById(R.id.txtname);
         edpassword = (EditText) findViewById(R.id.txtpassword);
 
-        ipaddress = "MAHMOUDBADR";
+        ipaddress = "192.168.1.7:1433";
         db = "Nursery";
         username = "sa";
         password = "P@ssw0rd";
@@ -77,6 +77,7 @@ public class Login extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 try {
+
                     st = connect.createStatement();
                     ResultSet rs = st.executeQuery("select * from login where userid='" + edname.getText().toString() + "' and password='" + edpassword.getText().toString() + "'");
                     if (rs != null && rs.next()) {
