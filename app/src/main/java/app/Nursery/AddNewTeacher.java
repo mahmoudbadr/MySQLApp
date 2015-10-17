@@ -69,7 +69,7 @@ public class AddNewTeacher extends ActionBarActivity {
         classes = (EditText) findViewById(R.id.txtclasses);
         subjects = (EditText) findViewById(R.id.txtsubjects);
 
-        ipaddress = "192.168.1.7:1433";
+        ipaddress = "192.168.1.4:1433";
         db = "Nursery";
         username = "sa";
         password = "P@ssw0rd";

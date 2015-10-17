@@ -67,7 +67,7 @@ public class Login extends ActionBarActivity {
         edname = (EditText) findViewById(R.id.txtname);
         edpassword = (EditText) findViewById(R.id.txtpassword);
 
-        ipaddress = "192.168.1.7:1433";
+        ipaddress = "192.168.1.4:1433";
         db = "Nursery";
         username = "sa";
         password = "P@ssw0rd";

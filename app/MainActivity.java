@@ -1,4 +1,4 @@
-package app.mysqlapp;
+package app.Nursery;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -49,16 +49,16 @@ public class MainActivity extends Activity {
 	private void inicializar() {
 		declarar();
 		//valuetxt.setText("SELECT * FROM barcodetable");
-		connect = CONN("sa", "P@ssw0rd", "Nursery", "MAHMOUDBADR");
+		connect = CONN("sa", "P@ssw0rd", "Nursery", "192.168.1.4:1433");
 	}
 
 	@SuppressLint("NewApi")
-	private Connection CONN(String _user, String _pass, String _DB,
+	private java.sql.Connection CONN(String _user, String _pass, String _DB,
 			String _server) {
 		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
 				.permitAll().build();
 		StrictMode.setThreadPolicy(policy);
-		Connection conn = null;
+		java.sql.Connection conn = null;
 		String ConnURL = null;
 		try {
 

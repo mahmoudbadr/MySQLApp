@@ -43,5 +43,19 @@ public class Explore extends ActionBarActivity {
 
             }
         });
+
+        Button SendNotification = (Button) findViewById(R.id.sendnotification);
+
+        SendNotification.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(Explore.this, SendNotification.class);
+                startActivity(i);
+
+
+            }
+        });
     }
 }

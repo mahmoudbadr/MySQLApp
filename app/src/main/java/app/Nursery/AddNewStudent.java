@@ -23,7 +23,7 @@ public class AddNewStudent extends ActionBarActivity {
 
     Button add;
     TextView errorlbl;
-    EditText name, address, pincode;
+    EditText name, address, pincode, classid, email, age, gender, nationality, socialnumber, birthdate, joindate, motherlanguage;
     java.sql.Connection connect;
     PreparedStatement preparedStatement;
     Statement st;
@@ -66,7 +66,9 @@ public class AddNewStudent extends ActionBarActivity {
         address = (EditText) findViewById(R.id.txtaddress);
         pincode = (EditText) findViewById(R.id.txtpincode);
 
-        ipaddress = "192.168.1.7:1433";
+
+
+        ipaddress = "192.168.1.4:1433";
         db = "Nursery";
         username = "sa";
         password = "P@ssw0rd";
