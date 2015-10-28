@@ -76,6 +76,14 @@
         <activity
             android:name="app.Nursery.RestAPI"
             android:label="@string/app_name" />
+
+        <activity
+            android:name="app.Nursery.QueryChildParents"
+            android:label="@string/app_name" />
+
+        <activity
+            android:name="app.Nursery.ParentsTable"
+            android:label="@string/app_name" />
     </application>
 
 </manifest>

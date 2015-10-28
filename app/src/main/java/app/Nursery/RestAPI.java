@@ -131,6 +131,20 @@ public class RestAPI {
         return result;
     }
 
+    public JSONObject GetParentsDetailsQuery(String child_id) throws Exception {
+        JSONObject result = null;
+        JSONObject o = new JSONObject();
+        JSONObject p = new JSONObject();
+        o.put("interface","Service1");
+        o.put("method", "GetParentsDetailsQuery");
+        p.put("child_id",mapObject(child_id));
+        o.put("parameters", p);
+        String s = o.toString();
+        String r = load(s);
+        result = new JSONObject(r);
+        return result;
+    }
+
     public JSONObject UserAuthentication(String user_id,String passsword) throws Exception {
         JSONObject result = null;
         JSONObject o = new JSONObject();
