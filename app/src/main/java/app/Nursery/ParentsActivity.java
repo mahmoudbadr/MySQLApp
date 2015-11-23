@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class DeptActivity extends Activity {
+public class ParentsActivity extends Activity {
 
 	ArrayAdapter<String> adapter;
 	ListView listv;
@@ -46,11 +46,11 @@ public class DeptActivity extends Activity {
 	}
 
 	protected class AsyncLoadDeptDetails extends
-			AsyncTask<Void, JSONObject, ArrayList<DeptTable>> {
-		ArrayList<DeptTable> deptTable = null;
+			AsyncTask<Void, JSONObject, ArrayList<ParentsTable>> {
+		ArrayList<ParentsTable> ParentsTable = null;
 
 		@Override
-		protected ArrayList<DeptTable> doInBackground(Void... params) {
+		protected ArrayList<ParentsTable> doInBackground(Void... params) {
 			// TODO Auto-generated method stub
 			
 			
@@ -61,7 +61,7 @@ public class DeptActivity extends Activity {
 
 				JSONParser parser = new JSONParser();
 
-				deptTable = parser.parseDepartment(jsonObj);
+				ParentsTable = parser.parseParents(jsonObj);
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -69,11 +69,11 @@ public class DeptActivity extends Activity {
 
 			}
 
-			return deptTable;
+			return ParentsTable;
 		}
 
 		@Override
-		protected void onPostExecute(ArrayList<DeptTable> result) {
+		protected void onPostExecute(ArrayList<ParentsTable> result) {
 			// TODO Auto-generated method stub
 
 			for (int i = 0; i < result.size(); i++) {

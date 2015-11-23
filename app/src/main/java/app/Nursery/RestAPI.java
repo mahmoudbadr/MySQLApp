@@ -21,7 +21,7 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 
 public class RestAPI {
-    private final String urlString = "http://nursery.somee.com/Handler.ashx";
+    private final String urlString = "http://Nursery.somee.com/Handler.ashx";
 
     private static String convertStreamToUTF8String(InputStream stream) throws IOException {
         String result = "";
@@ -138,6 +138,21 @@ public class RestAPI {
         o.put("interface","Service1");
         o.put("method", "GetParentsDetailsQuery");
         p.put("child_id",mapObject(child_id));
+        o.put("parameters", p);
+        String s = o.toString();
+        String r = load(s);
+        result = new JSONObject(r);
+        return result;
+    }
+
+    public JSONObject GetUserType(String user_id,String user_type) throws Exception {
+        JSONObject result = null;
+        JSONObject o = new JSONObject();
+        JSONObject p = new JSONObject();
+        o.put("interface","Service1");
+        o.put("method", "GetUserType");
+        p.put("user_id",mapObject(user_id));
+        p.put("user_type",mapObject(user_type));
         o.put("parameters", p);
         String s = o.toString();
         String r = load(s);

@@ -15,22 +15,22 @@ public class JSONParser {
 	super();	
 	}
 	
-	public ArrayList<DeptTable> parseDepartment(JSONObject object)
+	public ArrayList<ParentsTable> parseParents(JSONObject object)
 	{
-		ArrayList<DeptTable> arrayList=new ArrayList<DeptTable>();
+		ArrayList<ParentsTable> arrayList=new ArrayList<ParentsTable>();
 		try {
 			JSONArray jsonArray=object.getJSONArray("Value");
 			JSONObject jsonObj=null;
 			for(int i=0;i<jsonArray.length();i++)
 			{
 				jsonObj=jsonArray.getJSONObject(i);
-				arrayList.add(new DeptTable(jsonObj.getInt("parent_id"), jsonObj.getString("name")));
+				arrayList.add(new ParentsTable(jsonObj.getInt("parent_id"), jsonObj.getString("name")));
 			}
 			
 		
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
-			Log.d("JSONParser => parseDepartment", e.getMessage());
+			Log.d("JSONParser => parseParents", e.getMessage());
 		}
 		return arrayList;
 	}

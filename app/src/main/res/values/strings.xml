@@ -8,7 +8,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_dept">DeptActivity</string>
     <string name="title_activity_user_details">UserDetailsActivity</string>
-
+    <string name="forgot"><u>Forgot Password?</u></string>
 
     <string name="login">Login</string>
     <string name="userid">userid :</string>

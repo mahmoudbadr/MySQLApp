@@ -16,24 +16,7 @@
         android:theme="@style/AppTheme" >
 
 
-        <activity
-            android:name="app.Nursery.Login"
-            android:label="@string/app_name" >
 
-        </activity>
-        <activity
-            android:name="app.Nursery.AddNewStudent"
-            android:label="@string/app_name" />
-        <activity
-            android:name="app.Nursery.AddNewTeacher"
-            android:label="@string/app_name" />
-        <activity
-            android:name="app.Nursery.Explore"
-            android:label="@string/app_name" />
-
-        <activity
-            android:name="app.Nursery.SendNotification"
-            android:label="@string/app_name" />
 
         <activity
             android:name="app.Nursery.LoginActivity"
@@ -50,11 +33,7 @@
             android:label="@string/app_name" />
 
         <activity
-            android:name="app.Nursery.DeptActivity"
-            android:label="@string/app_name" />
-
-        <activity
-            android:name="app.Nursery.DeptTable"
+            android:name=".ParentsActivity"
             android:label="@string/app_name" />
 
         <activity

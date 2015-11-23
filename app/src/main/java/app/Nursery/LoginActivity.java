@@ -3,6 +3,7 @@ package app.Nursery;
 import org.json.JSONObject;
 
 
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
@@ -10,8 +11,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v4.app.NavUtils;
 import android.annotation.TargetApi;
@@ -22,12 +27,19 @@ import android.os.Build;
 public class LoginActivity extends Activity {
 
 	EditText etUserid, etPassword;
-	Button btnLogin;
+	ImageButton btnLogin;
 	Context context;
+	TextView header;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//Remove title bar
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+//Remove notification bar
+		//this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 		setContentView(R.layout.activity_login);
 		// Show the Up button in the action bar.
 //		setupActionBar();
@@ -37,10 +49,16 @@ public class LoginActivity extends Activity {
 		context=this;
 		etUserid = (EditText) findViewById(R.id.et_userid);
 		etPassword = (EditText) findViewById(R.id.et_password);
-		btnLogin = (Button) findViewById(R.id.btn_Login);
+		btnLogin = (ImageButton) findViewById(R.id.btn_Login);
+	    header = (TextView) findViewById(R.id.textView1);
 
-	
-		
+		Typeface typeFace = Typeface.createFromAsset(getAssets(), "CaviarDreams.ttf");
+		Typeface typeFace1 = Typeface.createFromAsset(getAssets(), "Elaines_hand_printing.ttf");
+
+		etUserid.setTypeface(typeFace);
+		etPassword.setTypeface(typeFace);
+		header.setTypeface(typeFace1);
+
 		btnLogin.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

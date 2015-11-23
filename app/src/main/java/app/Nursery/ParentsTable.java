@@ -1,37 +1,36 @@
 package app.Nursery;
 
-/**
- * Created by Mahmoud on 10/24/2015.
- */
 public class ParentsTable {
 
-    String Child_id;
+    int parent_id;
+    String name;
 
-    public ParentsTable(String Child_id) {
+    public ParentsTable(int parent_id, String name) {
         super();
-
-        this.Child_id = Child_id;
+        this.parent_id = parent_id;
+        this.name = name;
     }
 
     public ParentsTable() {
         super();
-
-        this.Child_id = null;
-
-
+        this.parent_id=0;
+        this.name = null;
     }
 
 
-
-    public String getChild_id() {
-        return Child_id;
+    public int getid() {
+        return parent_id;
+    }
+    public void setid(int parent_id) {
+        this.parent_id = parent_id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
-   /* public void setUserid(String User_id) {
-        this.User_id = User_id;
-    }
-*/
 
 
 }
-
