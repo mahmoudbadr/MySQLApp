@@ -41,11 +41,11 @@ public class ParentsActivity extends Activity {
 				android.R.layout.simple_list_item_1, data);
 		listv.setAdapter(adapter);
 		Toast.makeText(this,"Loading Please Wait..",Toast.LENGTH_SHORT).show();
-		new AsyncLoadDeptDetails().execute();
+		new AsyncLoadParentsDetails().execute();
 
 	}
 
-	protected class AsyncLoadDeptDetails extends
+	protected class AsyncLoadParentsDetails extends
 			AsyncTask<Void, JSONObject, ArrayList<ParentsTable>> {
 		ArrayList<ParentsTable> ParentsTable = null;
 

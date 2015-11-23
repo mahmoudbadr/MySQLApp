@@ -30,7 +30,7 @@ public class JSONParser {
 		
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
-			Log.d("JSONParser => parseParents", e.getMessage());
+			Log.d("JSONParser=>parseParent", e.getMessage());
 		}
 		return arrayList;
 	}
@@ -42,7 +42,7 @@ public class JSONParser {
 				userAtuh= object.getBoolean("Value");
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
-				Log.d("JSONParser => parseUserAuth", e.getMessage());
+				Log.d("JSONPar=>parseUserAuth", e.getMessage());
 			}
 			
 			return userAtuh;
@@ -60,7 +60,7 @@ public class JSONParser {
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
-			Log.d("JSONParser => parseUserDetails", e.getMessage());
+			Log.d("JSONPar=>parseUserDet", e.getMessage());
 		}
 		
 		return userDetail;

@@ -26,143 +26,143 @@ import android.os.Build;
 
 public class LoginActivity extends Activity {
 
-	EditText etUserid, etPassword;
-	ImageButton btnLogin;
-	Context context;
-	TextView header;
+    EditText etUserid, etPassword;
+    ImageButton btnLogin;
+    Context context;
+    TextView header;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		//Remove title bar
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //Remove title bar
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 //Remove notification bar
-		//this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-		setContentView(R.layout.activity_login);
-		// Show the Up button in the action bar.
+        setContentView(R.layout.activity_login);
+        // Show the Up button in the action bar.
 //		setupActionBar();
 
-		
-		// Initialize  the layout components 
-		context=this;
-		etUserid = (EditText) findViewById(R.id.et_userid);
-		etPassword = (EditText) findViewById(R.id.et_password);
-		btnLogin = (ImageButton) findViewById(R.id.btn_Login);
-	    header = (TextView) findViewById(R.id.textView1);
 
-		Typeface typeFace = Typeface.createFromAsset(getAssets(), "CaviarDreams.ttf");
-		Typeface typeFace1 = Typeface.createFromAsset(getAssets(), "Elaines_hand_printing.ttf");
+        // Initialize  the layout components
+        context=this;
+        etUserid = (EditText) findViewById(R.id.et_userid);
+        etPassword = (EditText) findViewById(R.id.et_password);
+        btnLogin = (ImageButton) findViewById(R.id.btn_Login);
+        header = (TextView) findViewById(R.id.textView1);
 
-		etUserid.setTypeface(typeFace);
-		etPassword.setTypeface(typeFace);
-		header.setTypeface(typeFace1);
+        Typeface typeFace = Typeface.createFromAsset(getAssets(), "CaviarDreams.ttf");
+        Typeface typeFace1 = Typeface.createFromAsset(getAssets(), "Elaines_hand_printing.ttf");
 
-		btnLogin.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-				String User_id=etUserid.getText().toString();
-				String password=etPassword.getText().toString();
-				
-				// Execute the AsyncLogin class 
-				new AsyncLogin().execute(User_id,password);
-				
-			}
-		});
-		
-		
+        etUserid.setTypeface(typeFace);
+        etPassword.setTypeface(typeFace);
+        header.setTypeface(typeFace1);
 
-	}
+        btnLogin.setOnClickListener(new View.OnClickListener() {
 
-	protected class AsyncLogin extends AsyncTask<String, JSONObject, Boolean> {
-	
-		String User_id=null;
-		String password=null;
-		@Override
-		protected Boolean doInBackground(String... params) {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
 
-			RestAPI api = new RestAPI();
-			boolean userAuth = false;
-			try {
-			
-				
-				// Call the User Authentication Method in API 
-				JSONObject jsonObj = api.UserAuthentication(params[0],
-						params[1]);
+                String User_id=etUserid.getText().toString();
+                String password=etPassword.getText().toString();
 
-				//Parse the JSON Object to boolean 
-				JSONParser parser = new JSONParser();
-				userAuth = parser.parseUserAuth(jsonObj);
-				User_id=params[0];
-				password=params[1];
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				Log.d("AsyncLogin", e.getMessage());
+                // Execute the AsyncLogin class
+                new AsyncLogin().execute(User_id,password);
 
-			}
-			return userAuth;
-		}
+            }
+        });
 
-		@Override
-		protected void onPreExecute() {
-			
-			super.onPreExecute();
-			
-			Toast.makeText(context, "Please Wait...", Toast.LENGTH_SHORT).show();
-		}
 
-		@Override
-		protected void onPostExecute(Boolean result) {
-			// TODO Auto-generated method stub
 
-			
-			//Check user validity 
-			if (result) {
-				Intent i = new Intent(LoginActivity.this,
-						UserDetailsActivity.class);
-				i.putExtra("User_id",User_id);
-				i.putExtra("password",password);
-				startActivity(i);
-			}
-			else
-			{
-				Toast.makeText(context, "Not valid Userid/password ",Toast.LENGTH_SHORT).show();
-			}
+    }
 
-		}
+    protected class AsyncLogin extends AsyncTask<String, JSONObject, Boolean> {
 
-	}
+        String User_id=null;
+        String password=null;
+        @Override
+        protected Boolean doInBackground(String... params) {
 
-	/**
-	 * Set up the {@link android.app.ActionBar}, if the API is available.
-	 */
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	private void setupActionBar() {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			//
-		}
-	}
+            RestAPI api = new RestAPI();
+            boolean userAuth = false;
+            try {
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
-		return true;
-	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			
-			NavUtils.navigateUpFromSameTask(this);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+                // Call the User Authentication Method in API
+                JSONObject jsonObj = api.UserAuthentication(params[0],
+                        params[1]);
+
+                //Parse the JSON Object to boolean
+                JSONParser parser = new JSONParser();
+                userAuth = parser.parseUserAuth(jsonObj);
+                User_id=params[0];
+                password=params[1];
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                Log.d("AsyncLogin", e.getMessage());
+
+            }
+            return userAuth;
+        }
+
+        @Override
+        protected void onPreExecute() {
+
+            super.onPreExecute();
+
+            Toast.makeText(context, "Please Wait...", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+            // TODO Auto-generated method stub
+
+
+            //Check user validity
+            if (result) {
+                Intent i = new Intent(LoginActivity.this,
+                        UserDetailsActivity.class);
+                i.putExtra("User_id",User_id);
+                i.putExtra("password",password);
+                startActivity(i);
+            }
+            else
+            {
+                Toast.makeText(context, "Not valid Userid/password ",Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+    }
+
+    /**
+     * Set up the {@link android.app.ActionBar}, if the API is available.
+     */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    private void setupActionBar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            //
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.login, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }
